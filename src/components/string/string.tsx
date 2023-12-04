@@ -1,5 +1,5 @@
 import React from "react";
-import "./string.css";
+import style from "./string.module.css";
 import { SolutionLayout } from "../ui/solution-layout/solution-layout";
 import { Input } from "../ui/input/input";
 import { Button } from "../ui/button/button";
@@ -76,7 +76,7 @@ export const StringComponent: React.FC = () => {
 
   return (
     <SolutionLayout title="Строка">
-      <form className="form" onSubmit={handleSubmit}>
+      <form className={`${style.form}`} onSubmit={handleSubmit}>
         <Input 
           onChange={handleInput}
           isLimitText={true}
@@ -89,7 +89,7 @@ export const StringComponent: React.FC = () => {
           disabled={!isValid}
         />
       </form>
-      <div className="board">
+      <div className={`${style.board}`}>
         {
           result.map((item, index) => {
             return <Circle 
