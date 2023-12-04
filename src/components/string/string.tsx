@@ -54,6 +54,8 @@ export const StringComponent: React.FC = () => {
 
     while(i <= middle) {
 
+      if(arr.length % 2 === 0 && i === middle) break;
+
       coloredArr[i].state = ElementStates.Changing;
       coloredArr[coloredArr.length - 1 - i].state = ElementStates.Changing;
       setResult([...coloredArr]);   // set result as new array for updating component by useState hook
