@@ -1,0 +1,38 @@
+.form {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 980px;
+}
+  
+.board {
+  padding-top: 48px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: flex-end;
+  width: 100%;
+  max-width: 944px;
+  min-height: 342px;
+  margin: 0 auto;
+}
+
+.btn {
+  min-width: 205px;
+}
+
+.radioBtns, .sortBtns {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  display: flex;
+  align-items: center;
+}
+
+.radioBtns {
+  gap: 40px;
+}
+
+.sortBtns {
+  gap: 12px;
+}
