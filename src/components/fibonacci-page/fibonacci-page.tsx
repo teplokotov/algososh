@@ -14,6 +14,7 @@ export const FibonacciPage: React.FC = () => {
   const [isValid, setIsValid] = React.useState(false);
   const [inputValue, setInputValue] = React.useState<number>(minNumber);
   const [result, setResult] = React.useState<number[]>([]);
+  const [isLoader, setIsLoader] = React.useState(false);
 
   function delay(time: number = 0) {
     return new Promise(resolve => setTimeout(resolve, time));
@@ -37,6 +38,7 @@ export const FibonacciPage: React.FC = () => {
   async function fibIterative(val: number) {
 
     setIsValid(false);
+    setIsLoader(true);
 
     const arr: number[] = [];
     let resultArr: number[] = [];
@@ -60,6 +62,7 @@ export const FibonacciPage: React.FC = () => {
     }
 
     setIsValid(true);
+    setIsLoader(false);
   }
 
   return (
@@ -72,11 +75,12 @@ export const FibonacciPage: React.FC = () => {
           isLimitText={true}
           min={minNumber}
           max={maxNumber}
+          disabled={!isValid && isLoader}
         />
         <Button
           type="submit"
           text="Развернуть"
-          isLoader={false}
+          isLoader={isLoader}
           disabled={!isValid}
         />
       </form>
