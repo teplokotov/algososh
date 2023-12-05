@@ -16,6 +16,7 @@ export const StringComponent: React.FC = () => {
   const [isValid, setIsValid] = React.useState(false);
   const [inputValue, setInputValue] = React.useState('');
   const [result, setResult] = React.useState<TResult[]>([]);
+  const [isLoader, setIsLoader] = React.useState(false);
   const maxLength = 11;
 
   function delay(time: number = 0) {
@@ -47,6 +48,7 @@ export const StringComponent: React.FC = () => {
     });
     setResult(coloredArr);
     setIsValid(false);
+    setIsLoader(true);
     await delay(1000);
 
     let i = 0;
@@ -74,6 +76,7 @@ export const StringComponent: React.FC = () => {
     }
 
     setIsValid(true);
+    setIsLoader(false);
   }
 
   return (
@@ -83,11 +86,12 @@ export const StringComponent: React.FC = () => {
           onChange={handleInput}
           isLimitText={true}
           maxLength={maxLength}
+          disabled={!isValid && isLoader}
         />
         <Button
           type="submit"
           text="Развернуть"
-          isLoader={false}
+          isLoader={isLoader}
           disabled={!isValid}
         />
       </form>
