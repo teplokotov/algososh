@@ -23,8 +23,7 @@
   border-radius: 20px;
   margin: 31px 20px 28px;
   padding: 36px;
-  min-height: 693px;
-  height: calc(100vh - 200px);
+  min-height: 780px;
   box-sizing: border-box;
 }
 
