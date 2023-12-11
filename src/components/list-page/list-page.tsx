@@ -7,6 +7,7 @@ import { Circle } from "../ui/circle/circle";
 import { ElementStates } from "../../types/element-states";
 import { ArrowIcon } from "../ui/icons/arrow-icon";
 import { LinkedList } from "../../classes/LinkedList";
+import { SHORT_DELAY_IN_MS } from "../../constants/delays";
 
 export const ListPage: React.FC = () => {
   
@@ -127,13 +128,13 @@ export const ListPage: React.FC = () => {
     }
     setInputValue('');
     setResultArr([...coloredArr]);
-    await delay(500);
+    await delay(SHORT_DELAY_IN_MS);
     result.prepend(inputValue);
 
     coloredArr = getColoredArray(result.toArray());
     coloredArr[0].state = ElementStates.Modified;
     setResultArr([...coloredArr]);
-    await delay(500);
+    await delay(SHORT_DELAY_IN_MS);
 
     coloredArr[0].state = ElementStates.Default;
     setResultArr([...coloredArr]);
@@ -153,14 +154,14 @@ export const ListPage: React.FC = () => {
     }
     setInputValue('');
     setResultArr([...coloredArr]);
-    await delay(500);
+    await delay(SHORT_DELAY_IN_MS);
 
     result.append(inputValue);
 
     coloredArr = getColoredArray(result.toArray());
     coloredArr[index + 1].state = ElementStates.Modified;
     setResultArr([...coloredArr]);
-    await delay(500);
+    await delay(SHORT_DELAY_IN_MS);
 
     coloredArr[index + 1].state = ElementStates.Default;
     setResultArr([...coloredArr]);
@@ -176,7 +177,7 @@ export const ListPage: React.FC = () => {
     coloredArr[0].buffer = coloredArr[0].value;
     coloredArr[0].value = '';
     setResultArr([...coloredArr]);
-    await delay(500);
+    await delay(SHORT_DELAY_IN_MS);
 
     result.deleteHead();
 
@@ -196,7 +197,7 @@ export const ListPage: React.FC = () => {
     coloredArr[index].buffer = coloredArr[index].value;
     coloredArr[index].value = '';
     setResultArr([...coloredArr]);
-    await delay(500);
+    await delay(SHORT_DELAY_IN_MS);
 
     result.deleteTail();
 
@@ -223,7 +224,7 @@ export const ListPage: React.FC = () => {
       coloredArr[i].buffer = inputValue;
       coloredArr[i].state = ElementStates.Changing;
       setResultArr([...coloredArr]);
-      await delay(500);
+      await delay(SHORT_DELAY_IN_MS);
 
       coloredArr[i].hasHead = false;
     }
@@ -233,14 +234,14 @@ export const ListPage: React.FC = () => {
       coloredArr[index].buffer = inputValue;
     }
     setResultArr([...coloredArr]);
-    await delay(500);
+    await delay(SHORT_DELAY_IN_MS);
 
     result.addByIndex(inputValue, index);
 
     coloredArr = getColoredArray(result.toArray());
     coloredArr[index].state = ElementStates.Modified;
     setResultArr([...coloredArr]);
-    await delay(500);
+    await delay(SHORT_DELAY_IN_MS);
 
     coloredArr[index].state = ElementStates.Default;
     setResultArr([...coloredArr]);
@@ -259,14 +260,14 @@ export const ListPage: React.FC = () => {
     for(let i = 0; i < index; i++) {
       coloredArr[i].state = ElementStates.Changing;
       setResultArr([...coloredArr]);
-      await delay(500);
+      await delay(SHORT_DELAY_IN_MS);
     }
 
     coloredArr[index].hasTail = true;
     coloredArr[index].buffer = coloredArr[index].value;
     coloredArr[index].value = '';
     setResultArr([...coloredArr]);
-    await delay(500);
+    await delay(SHORT_DELAY_IN_MS);
 
     result.deleteTail();
 

@@ -7,6 +7,7 @@ import { RadioInput } from "../ui/radio-input/radio-input";
 import { Direction } from "../../types/direction";
 import { Column } from "../ui/column/column";
 import { ElementStates } from "../../types/element-states";
+import { SHORT_DELAY_IN_MS } from "../../constants/delays";
 
 export const SortingPage: React.FC = () => {
 
@@ -63,7 +64,7 @@ export const SortingPage: React.FC = () => {
         arr[i].state = ElementStates.Changing;
         arr[j].state = ElementStates.Changing;
         setResult([...arr]);
-        await delay(500);
+        await delay(SHORT_DELAY_IN_MS);
         arr[j].state = ElementStates.Default;
         setResult([...arr]);
 
@@ -98,7 +99,7 @@ export const SortingPage: React.FC = () => {
         arr[j].state = ElementStates.Changing;
         arr[j + 1].state = ElementStates.Changing;
         setResult([...arr]);
-        await delay(500);
+        await delay(SHORT_DELAY_IN_MS);
 
         if((type === 'asc' && arr[j].value > arr[j + 1].value) || 
            (type === 'desc' && arr[j].value < arr[j + 1].value)) {

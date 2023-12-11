@@ -5,6 +5,7 @@ import { Input } from "../ui/input/input";
 import { Button } from "../ui/button/button";
 import { Circle } from "../ui/circle/circle";
 import { ElementStates } from "../../types/element-states";
+import { DELAY_IN_MS } from "../../constants/delays";
 
 export const StringComponent: React.FC = () => {
 
@@ -49,7 +50,7 @@ export const StringComponent: React.FC = () => {
     setResult(coloredArr);
     setIsValid(false);
     setIsLoader(true);
-    await delay(1000);
+    await delay(DELAY_IN_MS);
 
     let i = 0;
     let middle = Math.floor(arr.length / 2);
@@ -61,7 +62,7 @@ export const StringComponent: React.FC = () => {
       coloredArr[i].state = ElementStates.Changing;
       coloredArr[coloredArr.length - 1 - i].state = ElementStates.Changing;
       setResult([...coloredArr]);   // set result as new array for updating component by useState hook
-      await delay(1000);            // https://learn.javascript.ru/async-await#await
+      await delay(DELAY_IN_MS);            // https://learn.javascript.ru/async-await#await
 
       const temp = coloredArr[i];
       coloredArr[i] = coloredArr[coloredArr.length - 1 - i];
@@ -70,7 +71,7 @@ export const StringComponent: React.FC = () => {
       coloredArr[i].state = ElementStates.Modified;
       coloredArr[coloredArr.length - 1 - i].state = ElementStates.Modified;
       setResult([...coloredArr]);
-      await delay(1000);  
+      await delay(DELAY_IN_MS);  
 
       i++;       
     }

@@ -6,6 +6,7 @@ import { Button } from "../ui/button/button";
 import { Circle } from "../ui/circle/circle";
 import { ElementStates } from "../../types/element-states";
 import { Queue } from "../../classes/Queue";
+import { SHORT_DELAY_IN_MS } from "../../constants/delays";
 
 export const QueuePage: React.FC = () => {
   
@@ -80,7 +81,7 @@ export const QueuePage: React.FC = () => {
 
     coloredArr[result.getTail()].state = ElementStates.Changing;
     setResultArr([...coloredArr]);
-    await delay(500);     
+    await delay(SHORT_DELAY_IN_MS);     
 
     result.enqueue({
       value: inputValue,
@@ -105,7 +106,7 @@ export const QueuePage: React.FC = () => {
 
     coloredArr[result.getHead()].state = ElementStates.Changing;
     setResultArr([...coloredArr]);
-    await delay(500);   
+    await delay(SHORT_DELAY_IN_MS);   
 
     result.dequeue();
 

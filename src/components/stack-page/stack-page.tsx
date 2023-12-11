@@ -6,6 +6,7 @@ import { Button } from "../ui/button/button";
 import { Circle } from "../ui/circle/circle";
 import { ElementStates } from "../../types/element-states";
 import { Stack } from "../../classes/Stack";
+import { SHORT_DELAY_IN_MS } from "../../constants/delays";
 
 export const StackPage: React.FC = () => {
 
@@ -64,7 +65,7 @@ export const StackPage: React.FC = () => {
 
     coloredArr[coloredArr.length - 1].state = ElementStates.Changing;
     setResultArr([...coloredArr]);
-    await delay(500);  
+    await delay(SHORT_DELAY_IN_MS);  
 
     coloredArr[coloredArr.length - 1].state = ElementStates.Default;
     setResultArr([...coloredArr]);

@@ -5,6 +5,7 @@ import { Input } from "../ui/input/input";
 import { Button } from "../ui/button/button";
 import { Circle } from "../ui/circle/circle";
 import { ElementStates } from "../../types/element-states";
+import { SHORT_DELAY_IN_MS } from "../../constants/delays";
 
 export const FibonacciPage: React.FC = () => {
 
@@ -57,7 +58,7 @@ export const FibonacciPage: React.FC = () => {
       }
       
       setResult([...resultArr]);
-      await delay(500);
+      await delay(SHORT_DELAY_IN_MS);
 
     }
 
