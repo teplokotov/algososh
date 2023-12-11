@@ -5,6 +5,7 @@ import { Input } from "../ui/input/input";
 import { Button } from "../ui/button/button";
 import { Circle } from "../ui/circle/circle";
 import { ElementStates } from "../../types/element-states";
+import { Stack } from "../../classes/Stack";
 
 export const StackPage: React.FC = () => {
 
@@ -12,33 +13,6 @@ export const StackPage: React.FC = () => {
     value: string;
     state: ElementStates;
   };
-
-  interface IStack<T> {
-    push: (item: T) => void;
-    pop: () => void;
-    peak: () => T | null;
-    getSize: () => number;
-    getValues: () => T[];
-  }
-  
-  class Stack<T> implements IStack<T> {
-    private container: T[] = [];
-  
-    push = (item: T): void => {
-      this.container.push(item);
-    };
-  
-    pop = (): void => {
-      this.container.pop();
-    };
-  
-    peak = (): T | null => {
-      return this.container[this.getSize() - 1] ? this.container[this.getSize()  - 1] : null;
-    };
-  
-    getSize = () => this.container.length;
-    getValues = () => this.container;
-  }
 
   const [isValidAdd, setIsValidAdd] = React.useState(false);
   const [isValidRemove, setIsValidRemove] = React.useState(false);
