@@ -25,9 +25,9 @@ export const StringComponent: React.FC = () => {
   
   function handleInput(e: React.ChangeEvent<HTMLInputElement>) {
     const curLength = e.target.value.length;
+    setInputValue(e.target.value);
     if (curLength > 0 && curLength <= maxLength) {
       setIsValid(true);
-      setInputValue(e.target.value);
     } else {
       setIsValid(false);
     }
@@ -87,6 +87,7 @@ export const StringComponent: React.FC = () => {
           isLimitText={true}
           maxLength={maxLength}
           disabled={!isValid && isLoader}
+          value={inputValue}
         />
         <Button
           type="submit"

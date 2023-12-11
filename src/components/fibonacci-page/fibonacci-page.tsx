@@ -11,8 +11,8 @@ export const FibonacciPage: React.FC = () => {
   const minNumber = 1;
   const maxNumber = 19;
 
-  const [isValid, setIsValid] = React.useState(false);
-  const [inputValue, setInputValue] = React.useState<number>(minNumber);
+  const [isValid, setIsValid] = React.useState(true);
+  const [inputValue, setInputValue] = React.useState(String(minNumber));
   const [result, setResult] = React.useState<number[]>([]);
   const [isLoader, setIsLoader] = React.useState(false);
 
@@ -22,9 +22,9 @@ export const FibonacciPage: React.FC = () => {
   
   function handleInput(e: React.ChangeEvent<HTMLInputElement>) {
     const curValue = Number(e.target.value);
+    setInputValue(e.target.value);
     if (curValue >= minNumber && curValue <= maxNumber) {
       setIsValid(true);
-      setInputValue(Number(e.target.value));
     } else {
       setIsValid(false);
     }
@@ -32,7 +32,7 @@ export const FibonacciPage: React.FC = () => {
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    fibIterative(inputValue);
+    fibIterative(Number(inputValue));
   }
 
   async function fibIterative(val: number) {
@@ -76,6 +76,7 @@ export const FibonacciPage: React.FC = () => {
           min={minNumber}
           max={maxNumber}
           disabled={!isValid && isLoader}
+          value={inputValue}
         />
         <Button
           type="submit"
