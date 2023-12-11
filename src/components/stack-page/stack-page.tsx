@@ -39,9 +39,9 @@ export const StackPage: React.FC = () => {
 
   function handleInput(e: React.ChangeEvent<HTMLInputElement>) {
     const curLength = e.target.value.length;
+    setInputValue(e.target.value);
     if (curLength > 0 && curLength <= maxLength) {
       setIsValidAdd(true);
-      setInputValue(e.target.value);
     } else {
       setIsValidAdd(false);
     }
@@ -77,7 +77,7 @@ export const StackPage: React.FC = () => {
 
   return (
     <SolutionLayout title="Стек">
-      <form className={`${style.form}`}>
+      <form className={`${style.form}`} onSubmit={e => e.preventDefault()}>
         <fieldset className={`${style.leftSide}`}>
           <Input 
             onChange={handleInput}
