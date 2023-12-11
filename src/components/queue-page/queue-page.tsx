@@ -26,6 +26,10 @@ export const QueuePage: React.FC = () => {
   const [isValidAdd, setIsValidAdd] = React.useState(false);
   const [isValidRemove, setIsValidRemove] = React.useState(false);
   const [isValidClear, setIsValidClear] = React.useState(false);
+  const [isLoaderAdd, setIsLoaderAdd] = React.useState(false);
+  const [isLoaderRemove, setIsLoaderRemove] = React.useState(false);
+  const [isLoaderClear, setIsLoaderClear] = React.useState(false);
+
   const [inputValue, setInputValue] = React.useState('');
   const [result, setResult] = React.useState(new Queue<TResult>(queueLength));
   const [resultArr, setResultArr] = React.useState<TResult[]>(startArr);
@@ -68,6 +72,7 @@ export const QueuePage: React.FC = () => {
 
     if(result.getTail() >= queueLength) return 0;
 
+    setIsLoaderAdd(true);
     setInputValue('');
     setIsValidAdd(false);
 
@@ -86,11 +91,15 @@ export const QueuePage: React.FC = () => {
 
     coloredArr[result.getTail() - 1].state = ElementStates.Default;
     setResultArr([...coloredArr]);
+
+    setIsLoaderAdd(false);
   }
 
   async function handleRemove() {
 
     if(result.getHead() >= queueLength || result.isEmpty()) return 0;
+
+    setIsLoaderRemove(true);
 
     let coloredArr = getFilledArray();
 
@@ -104,11 +113,15 @@ export const QueuePage: React.FC = () => {
 
     coloredArr[result.getTail() - 1].state = ElementStates.Default;
     setResultArr([...coloredArr]);
+
+    setIsLoaderRemove(false);
   }
 
   function handleClear() {
+    setIsLoaderClear(true);
     setResult(new Queue<TResult>(queueLength));
     setResultArr(startArr);
+    setIsLoaderClear(false);
   }
 
   return (
@@ -128,6 +141,7 @@ export const QueuePage: React.FC = () => {
             text="Добавить"
             onClick={handleAdd}
             disabled={!isValidAdd}
+            isLoader={isLoaderAdd}
           />
           <Button
             name="remove"
@@ -135,6 +149,7 @@ export const QueuePage: React.FC = () => {
             text="Удалить"
             onClick={handleRemove}
             disabled={!isValidRemove}
+            isLoader={isLoaderRemove}
           />
         </fieldset>
         <Button
@@ -143,6 +158,7 @@ export const QueuePage: React.FC = () => {
           text="Очистить"
           onClick={handleClear}
           disabled={!isValidClear}
+          isLoader={isLoaderClear}
         />
       </form>
       <div className={`${style.board}`}>

@@ -17,6 +17,10 @@ export const StackPage: React.FC = () => {
   const [isValidAdd, setIsValidAdd] = React.useState(false);
   const [isValidRemove, setIsValidRemove] = React.useState(false);
   const [isValidClear, setIsValidClear] = React.useState(false);
+  const [isLoaderAdd, setIsLoaderAdd] = React.useState(false);
+  const [isLoaderRemove, setIsLoaderRemove] = React.useState(false);
+  const [isLoaderClear, setIsLoaderClear] = React.useState(false);
+
   const [inputValue, setInputValue] = React.useState('');
   const [result, setResult] = React.useState(new Stack<TResult>());
   const [resultArr, setResultArr] = React.useState<TResult[]>([]);
@@ -48,6 +52,7 @@ export const StackPage: React.FC = () => {
   }
 
   async function handleAdd() {
+    setIsLoaderAdd(true);
     setInputValue('');
     setIsValidAdd(false);
     result.push({
@@ -63,16 +68,21 @@ export const StackPage: React.FC = () => {
 
     coloredArr[coloredArr.length - 1].state = ElementStates.Default;
     setResultArr([...coloredArr]);
+    setIsLoaderAdd(false);
   }
 
   function handleRemove() {
+    setIsLoaderRemove(true);
     result.pop();
     setResultArr([...result.getValues()]);
+    setIsLoaderRemove(false);
   }
 
   function handleClear() {
+    setIsLoaderClear(true);
     setResult(new Stack<TResult>());
     setResultArr([]);
+    setIsLoaderClear(false);
   }
 
   return (
@@ -92,6 +102,7 @@ export const StackPage: React.FC = () => {
             text="Добавить"
             onClick={handleAdd}
             disabled={!isValidAdd}
+            isLoader={isLoaderAdd}
           />
           <Button
             name="remove"
@@ -99,6 +110,7 @@ export const StackPage: React.FC = () => {
             text="Удалить"
             onClick={handleRemove}
             disabled={!isValidRemove}
+            isLoader={isLoaderRemove}
           />
         </fieldset>
         <Button
@@ -107,6 +119,7 @@ export const StackPage: React.FC = () => {
           text="Очистить"
           onClick={handleClear}
           disabled={!isValidClear}
+          isLoader={isLoaderClear}
         />
       </form>
       <div className={`${style.board}`}>
