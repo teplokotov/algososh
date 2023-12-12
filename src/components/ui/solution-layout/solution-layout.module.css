@@ -11,6 +11,7 @@
 .titleBox {
   display: flex;
   margin-left: 19px;
+  margin-top: 40px;
 }
 
 .subtitle {
@@ -22,7 +23,7 @@
   border-radius: 20px;
   margin: 31px 20px 28px;
   padding: 36px;
-  height: 693px;
+  min-height: 780px;
   box-sizing: border-box;
 }
 

@@ -1,0 +1,30 @@
+.form {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 829px;
+}
+
+.board {
+  padding-top: 52px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 80px 16px;
+  width: 100%;
+  max-width: 944px;
+  margin: 0 auto;
+}
+
+.leftSide {
+  margin: 0;
+  padding: 0;
+  border: none;
+  display: flex;
+  gap: 12px;
+}
+
+.input {
+  width: 377px;
+}
