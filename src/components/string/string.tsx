@@ -83,7 +83,8 @@ export const StringComponent: React.FC = () => {
   return (
     <SolutionLayout title="Строка">
       <form className={`${style.form}`} onSubmit={handleSubmit}>
-        <Input 
+        <Input
+          data-testid="input" 
           onChange={handleInput}
           isLimitText={true}
           maxLength={maxLength}
@@ -91,13 +92,14 @@ export const StringComponent: React.FC = () => {
           value={inputValue}
         />
         <Button
+          data-testid="button"
           type="submit"
           text="Развернуть"
           isLoader={isLoader}
           disabled={!isValid}
         />
       </form>
-      <div className={`${style.board}`}>
+      <div className={`${style.board}`} data-testid="resultLayout">
         {
           result.map((item, index) => {
             return <Circle 
