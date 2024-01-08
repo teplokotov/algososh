@@ -12,7 +12,7 @@ import { SHORT_DELAY_IN_MS } from "../../constants/delays";
 export const ListPage: React.FC = () => {
   
   const maxLength = 4;      // input length
-  const minListLength = 2;
+  const minListLength = 3;
   const maxListLength = 6;
   
   type TResult = {
@@ -269,7 +269,7 @@ export const ListPage: React.FC = () => {
     setResultArr([...coloredArr]);
     await delay(SHORT_DELAY_IN_MS);
 
-    result.deleteTail();
+    result.deleteByIndex(index);
 
     coloredArr = getColoredArray(result.toArray());
     setResultArr([...coloredArr]);

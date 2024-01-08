@@ -9,15 +9,17 @@ import { Column } from "../ui/column/column";
 import { ElementStates } from "../../types/element-states";
 import { SHORT_DELAY_IN_MS } from "../../constants/delays";
 
-export const SortingPage: React.FC = () => {
-
+export const SortingPage: React.FC<{arr?: number[]}> = ({arr}) => {
   type TResult = {
     value: number;
     state: ElementStates;
   };
 
   const [isValid, setIsValid] = React.useState(true);
-  const [result, setResult] = React.useState<TResult[]>(getRandomArr());
+  const [result, setResult] = React.useState<TResult[]>(
+    arr ? 
+    arr.map((item) => { return { value: item, state: ElementStates.Default }}) 
+    : getRandomArr());
   const [isLoaderASC, setIsLoaderASC] = React.useState(false);
   const [isLoaderDESC, setIsLoaderDESC] = React.useState(false);
 
@@ -147,6 +149,7 @@ export const SortingPage: React.FC = () => {
       <form className={`${style.form}`} onSubmit={handleSubmit}>
         <fieldset className={`${style.radioBtns}`}>
           <RadioInput 
+            data-testid="radioSelection"
             name="typeOfSort"
             label="Выбор"
             value="Selection"
@@ -154,6 +157,7 @@ export const SortingPage: React.FC = () => {
             disabled={!isValid}
           />
           <RadioInput
+            data-testid="radioBubble"
             name="typeOfSort"
             label="Пузырёк"
             value="Bubble"
@@ -162,6 +166,7 @@ export const SortingPage: React.FC = () => {
         </fieldset>
         <fieldset className={`${style.sortBtns}`}>
           <Button
+            data-testid="buttonASC"
             name="asc"
             type="submit"
             text="По возрастанию"
@@ -171,6 +176,7 @@ export const SortingPage: React.FC = () => {
             extraClass={`${style.btn}`}
           />
           <Button
+            data-testid="buttonDESC"
             name="desc"
             type="submit"
             text="По убыванию"
@@ -181,6 +187,7 @@ export const SortingPage: React.FC = () => {
           />
         </fieldset>
         <Button
+          data-testid="buttonNewArr"
           name="newArr"
           type="submit"
           text="Новый массив"
@@ -189,7 +196,7 @@ export const SortingPage: React.FC = () => {
           extraClass={`${style.btn}`}
         />
       </form>
-      <div className={`${style.board}`}>
+      <div className={`${style.board}`} data-testid="resultLayout">
         {
           result.map((item, index) => {
             return <Column 
