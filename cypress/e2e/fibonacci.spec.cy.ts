@@ -1,5 +1,5 @@
 /* eslint-disable testing-library/await-async-utils */
-describe('Тестирование страницы: Строка', function() {
+describe('Тестирование страницы: Последовательность Фибоначчи', function() {
 
     const addr = 'http://localhost:3000/fibonacci';
     const inputValue = '3';
