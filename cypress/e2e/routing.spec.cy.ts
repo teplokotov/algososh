@@ -1,6 +1,6 @@
 describe('Тестирование переходов по страницам', function() {
   
-  const addr = 'http://localhost:3000';
+  const addr = '/';
 
   it('должна открываться заглавная страница', function() {
     cy.viewport(1280, 1024);

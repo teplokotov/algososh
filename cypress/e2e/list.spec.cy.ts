@@ -1,7 +1,7 @@
 /* eslint-disable testing-library/await-async-utils */
 describe('Тестирование страницы: Связный список', function() {
 
-  const addr = 'http://localhost:3000/list';
+  const addr = 'list';
   const inputValue_1 = 'head';
   const inputValue_2 = 'tail';
   const inputValue_3 = 'betw';

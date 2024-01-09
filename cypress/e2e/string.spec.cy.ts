@@ -1,7 +1,7 @@
 /* eslint-disable testing-library/await-async-utils */
 describe('Тестирование страницы: Строка', function() {
 
-  const addr = 'http://localhost:3000/recursion';
+  const addr = 'recursion';
   const inputValue = '123';
   const defaultColor = 'rgb(0, 50, 255)';
   const changingColor = 'rgb(210, 82, 225)';

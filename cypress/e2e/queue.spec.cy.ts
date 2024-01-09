@@ -1,7 +1,7 @@
 /* eslint-disable testing-library/await-async-utils */
 describe('Тестирование страницы: Очередь', function() {
 
-  const addr = 'http://localhost:3000/queue';
+  const addr = 'queue';
   const inputValue_1 = '1';
   const inputValue_2 = '2';
   const defaultColor = 'rgb(0, 50, 255)';

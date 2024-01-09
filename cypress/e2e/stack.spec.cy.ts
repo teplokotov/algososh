@@ -1,7 +1,7 @@
 /* eslint-disable testing-library/await-async-utils */
 describe('Тестирование страницы: Стек', function() {
 
-  const addr = 'http://localhost:3000/stack';
+  const addr = 'stack';
   const inputValue_1 = '1';
   const inputValue_2 = '2';
   const defaultColor = 'rgb(0, 50, 255)';
