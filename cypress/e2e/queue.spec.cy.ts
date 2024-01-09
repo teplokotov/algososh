@@ -1,11 +1,11 @@
+import { changingColor, defaultColor } from "./constants/colors";
+
 /* eslint-disable testing-library/await-async-utils */
 describe('Тестирование страницы: Очередь', function() {
 
   const addr = 'queue';
   const inputValue_1 = '1';
   const inputValue_2 = '2';
-  const defaultColor = 'rgb(0, 50, 255)';
-  const changingColor = 'rgb(210, 82, 225)';
 
   const input = '#root > div > main > div > form > fieldset > div > input';
   const buttonAdd = '#root > div > main > div > form > fieldset > button:nth-child(2)';

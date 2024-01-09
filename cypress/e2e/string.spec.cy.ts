@@ -1,11 +1,10 @@
+import { changingColor, defaultColor, modifiedColor } from "./constants/colors";
+
 /* eslint-disable testing-library/await-async-utils */
 describe('Тестирование страницы: Строка', function() {
 
   const addr = 'recursion';
   const inputValue = '123';
-  const defaultColor = 'rgb(0, 50, 255)';
-  const changingColor = 'rgb(210, 82, 225)';
-  const modifiedColor = 'rgb(127, 224, 81)';
 
   const input = '#root > div > main > div > form > div > input';
   const button = '#root > div > main > div > form > button';

@@ -1,3 +1,5 @@
+import { defaultColor } from "./constants/colors";
+
 /* eslint-disable testing-library/await-async-utils */
 describe('Тестирование страницы: Связный список', function() {
 
@@ -6,7 +8,6 @@ describe('Тестирование страницы: Связный список
   const inputValue_2 = 'tail';
   const inputValue_3 = 'betw';
   const idx = '1';
-  const defaultColor = 'rgb(0, 50, 255)';
 
   const inputValue = '#root > div > main > div > form > div:nth-child(1) > input';
   const inputIndex = '#root > div > main > div > form > div:nth-child(6) > input';
