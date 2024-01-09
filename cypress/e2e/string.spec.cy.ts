@@ -54,7 +54,7 @@ describe('Тестирование страницы: Строка', function() {
     cy.wait(1000);
     cy.get(board).children().each((item, index) => {
       cy.wrap(item.children()[1]).should("have.css", "border-color", modifiedColor);
-      cy.wrap(item.children()[1]).should("have.a.property", "textContent", (inputValue[inputValue.length  - index]));
+      cy.wrap(item.children()[1]).should("have.a.property", "textContent", (inputValue[inputValue.length - 1 - index]));
     });
 
   });
