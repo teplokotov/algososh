@@ -90,6 +90,7 @@ export const StringComponent: React.FC = () => {
           maxLength={maxLength}
           disabled={!isValid && isLoader}
           value={inputValue}
+          data-cy="input"
         />
         <Button
           data-testid="button"
@@ -97,9 +98,10 @@ export const StringComponent: React.FC = () => {
           text="Развернуть"
           isLoader={isLoader}
           disabled={!isValid}
+          data-cy="button"
         />
       </form>
-      <div className={`${style.board}`} data-testid="resultLayout">
+      <div className={`${style.board}`} data-testid="resultLayout" data-cy="board">
         {
           result.map((item, index) => {
             return <Circle 

@@ -9,15 +9,15 @@ describe('Тестирование страницы: Связный список
   const inputValue_3 = 'betw';
   const idx = '1';
 
-  const inputValue = '#root > div > main > div > form > div:nth-child(1) > input';
-  const inputIndex = '#root > div > main > div > form > div:nth-child(6) > input';
-  const buttonAddToHead = '#root > div > main > div > form > button:nth-child(2)';
-  const buttonAddToTail = '#root > div > main > div > form > button:nth-child(3)';
-  const buttonDeleteFromHead = '#root > div > main > div > form > button:nth-child(4)';
-  const buttonDeleteFromTail = '#root > div > main > div > form > button:nth-child(5)';
-  const buttonAddByIndex = '#root > div > main > div > form > button:nth-child(7)';
-  const buttonDeleteByIndex = '#root > div > main > div > form > button:nth-child(8)';
-  const board = '#root > div > main > div > ul';
+  const inputValue = '[data-cy="inputValue"]';
+  const inputIndex = '[data-cy="inputIndex"]';
+  const buttonAddToHead = '[data-cy="addToHead"]';
+  const buttonAddToTail = '[data-cy="addToTail"]';
+  const buttonDeleteFromHead = '[data-cy="removeFromHead"]';
+  const buttonDeleteFromTail = '[data-cy="removeFromTail"]';
+  const buttonAddByIndex = '[data-cy="addbyIndex"]';
+  const buttonDeleteByIndex = '[data-cy="removebyIndex"]';
+  const board = '[data-cy="board"]';
 
   it('если в инпуте пусто, то кнопка добавления в Head, кнопка добавления в Tail, кнопка добавления по индексу и кнопка удаления по индексу недоступны', function() {
     cy.viewport(1280, 1024);

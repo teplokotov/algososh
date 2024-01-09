@@ -6,9 +6,9 @@ describe('Тестирование страницы: Строка', function() {
   const addr = 'recursion';
   const inputValue = '123';
 
-  const input = '#root > div > main > div > form > div > input';
-  const button = '#root > div > main > div > form > button';
-  const board = '#root > div > main > div > div';
+  const input = '[data-cy="input"]';
+  const button = '[data-cy="button"]';
+  const board = '[data-cy="board"]';
 
   it('если в инпуте пусто, то кнопка добавления недоступна', function() {
     cy.viewport(1280, 1024);

@@ -7,11 +7,11 @@ describe('Тестирование страницы: Очередь', function()
   const inputValue_1 = '1';
   const inputValue_2 = '2';
 
-  const input = '#root > div > main > div > form > fieldset > div > input';
-  const buttonAdd = '#root > div > main > div > form > fieldset > button:nth-child(2)';
-  const buttonDelete = '#root > div > main > div > form > fieldset > button:nth-child(3)';
-  const buttonClear = '#root > div > main > div > form > button';
-  const board = '#root > div > main > div > div';
+  const input = '[data-cy="input"]';
+  const buttonAdd = '[data-cy="add"]';
+  const buttonDelete = '[data-cy="remove"]';
+  const buttonClear = '[data-cy="clear"]';
+  const board = '[data-cy="board"]';
 
   it('если в инпуте пусто, то кнопка добавления недоступна', function() {
     cy.viewport(1280, 1024);
