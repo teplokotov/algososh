@@ -96,6 +96,7 @@ export const StackPage: React.FC = () => {
             maxLength={maxLength}
             extraClass={`${style.input}`}
             value={inputValue}
+            data-cy="input"
           />
           <Button
             name="add"
@@ -104,6 +105,7 @@ export const StackPage: React.FC = () => {
             onClick={handleAdd}
             disabled={!isValidAdd}
             isLoader={isLoaderAdd}
+            data-cy="add"
           />
           <Button
             name="remove"
@@ -112,6 +114,7 @@ export const StackPage: React.FC = () => {
             onClick={handleRemove}
             disabled={!isValidRemove}
             isLoader={isLoaderRemove}
+            data-cy="remove"
           />
         </fieldset>
         <Button
@@ -121,9 +124,10 @@ export const StackPage: React.FC = () => {
           onClick={handleClear}
           disabled={!isValidClear}
           isLoader={isLoaderClear}
+          data-cy="clear"
         />
       </form>
-      <div className={`${style.board}`}>
+      <div className={`${style.board}`} data-cy="board">
         {
           resultArr.map((item, index) => {
             return <Circle 

@@ -12,7 +12,7 @@ import { SHORT_DELAY_IN_MS } from "../../constants/delays";
 export const ListPage: React.FC = () => {
   
   const maxLength = 4;      // input length
-  const minListLength = 2;
+  const minListLength = 3;
   const maxListLength = 6;
   
   type TResult = {
@@ -269,7 +269,7 @@ export const ListPage: React.FC = () => {
     setResultArr([...coloredArr]);
     await delay(SHORT_DELAY_IN_MS);
 
-    result.deleteTail();
+    result.deleteByIndex(index);
 
     coloredArr = getColoredArray(result.toArray());
     setResultArr([...coloredArr]);
@@ -302,6 +302,7 @@ export const ListPage: React.FC = () => {
             maxLength={maxLength}
             extraClass={`${style.input}`}
             value={inputValue}
+            data-cy="inputValue"
           />
           <Button
             name="addToHead"
@@ -311,6 +312,7 @@ export const ListPage: React.FC = () => {
             disabled={!isValidAddToHead}
             isLoader={isLoaderAddToHead}
             extraClass={`${style.btn}`}
+            data-cy="addToHead"
           />
           <Button
             name="addToTail"
@@ -320,6 +322,7 @@ export const ListPage: React.FC = () => {
             disabled={!isValidAddToTail}
             isLoader={isLoaderAddToTail}
             extraClass={`${style.btn}`}
+            data-cy="addToTail"
           />
           <Button
             name="removeFromHead"
@@ -329,6 +332,7 @@ export const ListPage: React.FC = () => {
             disabled={!isValidRemoveFromHead}
             isLoader={isLoaderRemoveFromHead}
             extraClass={`${style.btn}`}
+            data-cy="removeFromHead"
           />
           <Button
             name="removeFromTail"
@@ -338,6 +342,7 @@ export const ListPage: React.FC = () => {
             disabled={!isValidRemoveFromTail}
             isLoader={isLoaderRemoveFromTail}
             extraClass={`${style.btn}`}
+            data-cy="removeFromTail"
           />
           <Input
             name="inputIndex"
@@ -346,6 +351,7 @@ export const ListPage: React.FC = () => {
             onChange={handleInputIndex}
             extraClass={`${style.input}`}
             value={inputIndex}
+            data-cy="inputIndex"
           />
           <Button
             name="addbyIndex"
@@ -355,6 +361,7 @@ export const ListPage: React.FC = () => {
             disabled={!isValidAddbyIndex}
             isLoader={isLoaderAddbyIndex}
             extraClass={`${style.btnIndex}`}
+            data-cy="addbyIndex"
           />
           <Button
             name="removebyIndex"
@@ -364,9 +371,10 @@ export const ListPage: React.FC = () => {
             disabled={!isValidRemovebyIndex}
             isLoader={isLoaderRemovebyIndex}
             extraClass={`${style.btnIndex}`}
+            data-cy="removebyIndex"
           />
       </form>
-      <ul className={`${style.board}`}>
+      <ul className={`${style.board}`} data-cy="board">
         {
           resultArr.map((item, index) => {
             return <li className={`${style.element}`} key={index}>

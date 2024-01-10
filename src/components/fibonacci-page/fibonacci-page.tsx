@@ -78,15 +78,17 @@ export const FibonacciPage: React.FC = () => {
           max={maxNumber}
           disabled={!isValid && isLoader}
           value={inputValue}
+          data-cy="input"
         />
         <Button
           type="submit"
           text="Развернуть"
           isLoader={isLoader}
           disabled={!isValid}
+          data-cy="button"
         />
       </form>
-      <div className={`${style.board}`}>
+      <div className={`${style.board}`} data-cy="board">
         {
           result.map((item, index) => {
             return <Circle 
