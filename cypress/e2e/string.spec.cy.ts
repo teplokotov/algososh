@@ -1,14 +1,11 @@
 import { changingColor, defaultColor, modifiedColor } from "./constants/colors";
+import { board, button, input } from "./constants/selectors";
 
 /* eslint-disable testing-library/await-async-utils */
 describe('Тестирование страницы: Строка', function() {
 
   const addr = 'recursion';
   const inputValue = '123';
-
-  const input = '[data-cy="input"]';
-  const button = '[data-cy="button"]';
-  const board = '[data-cy="board"]';
 
   it('если в инпуте пусто, то кнопка добавления недоступна', function() {
     cy.viewport(1280, 1024);

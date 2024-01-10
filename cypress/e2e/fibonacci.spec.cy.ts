@@ -1,13 +1,11 @@
+import { board, button, input } from "./constants/selectors";
+
 /* eslint-disable testing-library/await-async-utils */
 describe('Тестирование страницы: Последовательность Фибоначчи', function() {
 
     const addr = 'fibonacci';
     const inputValue = '3';
     const outputArr = ['1', '1', '2', '3'];
-  
-    const input = '[data-cy="input"]';
-    const button = '[data-cy="button"]';
-    const board = '[data-cy="board"]';
   
     it('если в инпуте пусто, то кнопка добавления недоступна', function() {
       cy.viewport(1280, 1024);

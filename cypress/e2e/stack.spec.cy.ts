@@ -1,4 +1,5 @@
 import { changingColor, defaultColor } from "./constants/colors";
+import { board, buttonAdd, buttonClear, buttonDelete, input } from "./constants/selectors";
 
 /* eslint-disable testing-library/await-async-utils */
 describe('Тестирование страницы: Стек', function() {
@@ -6,12 +7,6 @@ describe('Тестирование страницы: Стек', function() {
   const addr = 'stack';
   const inputValue_1 = '1';
   const inputValue_2 = '2';
-
-  const input = '[data-cy="input"]';
-  const buttonAdd = '[data-cy="add"]';
-  const buttonDelete = '[data-cy="remove"]';
-  const buttonClear = '[data-cy="clear"]';
-  const board = '[data-cy="board"]';
 
   it('если в инпуте пусто, то кнопка добавления недоступна', function() {
     cy.viewport(1280, 1024);

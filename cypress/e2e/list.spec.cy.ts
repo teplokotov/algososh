@@ -1,4 +1,5 @@
 import { defaultColor } from "./constants/colors";
+import { board, buttonAddByIndex, buttonAddToHead, buttonAddToTail, buttonDeleteByIndex, buttonDeleteFromHead, buttonDeleteFromTail, inputIndex, inputValue } from "./constants/selectors";
 
 /* eslint-disable testing-library/await-async-utils */
 describe('Тестирование страницы: Связный список', function() {
@@ -8,16 +9,6 @@ describe('Тестирование страницы: Связный список
   const inputValue_2 = 'tail';
   const inputValue_3 = 'betw';
   const idx = '1';
-
-  const inputValue = '[data-cy="inputValue"]';
-  const inputIndex = '[data-cy="inputIndex"]';
-  const buttonAddToHead = '[data-cy="addToHead"]';
-  const buttonAddToTail = '[data-cy="addToTail"]';
-  const buttonDeleteFromHead = '[data-cy="removeFromHead"]';
-  const buttonDeleteFromTail = '[data-cy="removeFromTail"]';
-  const buttonAddByIndex = '[data-cy="addbyIndex"]';
-  const buttonDeleteByIndex = '[data-cy="removebyIndex"]';
-  const board = '[data-cy="board"]';
 
   it('если в инпуте пусто, то кнопка добавления в Head, кнопка добавления в Tail, кнопка добавления по индексу и кнопка удаления по индексу недоступны', function() {
     cy.viewport(1280, 1024);

@@ -1,8 +1,8 @@
+import { cards, linkReturn } from "./constants/selectors";
+
 describe('Тестирование переходов по страницам', function() {
   
   const addr = '/';
-  const cards = '[data-cy="cards"]';
-  const linkReturn = '[data-cy="linkReturn"]';
 
   it('должна открываться заглавная страница', function() {
     cy.viewport(1280, 1024);
