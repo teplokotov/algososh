@@ -7,13 +7,14 @@ import { QueuePage } from "../queue-page/queue-page";
 import { StringComponent } from "../string/string";
 import { SortingPage } from "../sorting-page/sorting-page";
 import { StackPage } from "../stack-page/stack-page";
+import { HashRouter as Router } from 'react-router-dom'; // Trick: HashRouter for deploying at gh-pages
 
 import "./app.module.css";
 
 function App() {
   return (
     <div className="app">
-      <BrowserRouter>
+      <Router>
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/recursion" element={<StringComponent />} />
@@ -23,7 +24,7 @@ function App() {
           <Route path="/queue" element={<QueuePage />} />
           <Route path="/list" element={<ListPage />} />
         </Routes>
-      </BrowserRouter>
+      </Router>
     </div>
   );
 }
